@@ -57,6 +57,7 @@ function LoginCtrl($scope, $rootScope, $http, $httpParamSerializer, baseUrlSrv, 
     $scope.loginParams = {
       userName: '',
       password: '',
+      // ssoid: '测试id',
     };
   };
 

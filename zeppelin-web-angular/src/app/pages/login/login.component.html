@@ -15,32 +15,42 @@
     <div class="form">
       <form nz-form nzLayout="vertical">
         <nz-form-item>
-          <nz-form-label nzRequired>User Name</nz-form-label>
+          <nz-form-label nzRequired>用户名</nz-form-label>
           <nz-form-control>
             <nz-input-group nzPrefixIcon="user">
-              <input nz-input [(ngModel)]="userName" placeholder="User Name" name="userName" required/>
+              <input nz-input [(ngModel)]="userName" placeholder="-" name="userName" required/>
             </nz-input-group>
           </nz-form-control>
         </nz-form-item>
         <nz-form-item>
-          <nz-form-label nzRequired>Password</nz-form-label>
+          <nz-form-label nzRequired>密码</nz-form-label>
           <nz-form-control>
             <nz-input-group nzPrefixIcon="lock">
-              <input nz-input [(ngModel)]="password" placeholder="Password" name="password" type="password" required/>
+              <input nz-input [(ngModel)]="password" placeholder="-" name="password" type="password" required/>
+            </nz-input-group>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-label nzRequired>URL传参</nz-form-label>
+          <nz-form-control>
+            <nz-input-group nzPrefixIcon="user">
+              <input nz-input [(ngModel)]="ssoid" placeholder="参数" name="ssoid" required/>
             </nz-input-group>
           </nz-form-control>
         </nz-form-item>
         <nz-form-item>
           <nz-form-control>
-            <button nz-button nzType="primary" (click)="login()" [nzLoading]="loading">Login</button>
+            <button nz-button nzType="primary" (click)="getsso()" [nzLoading]="loading">自动登录</button>
+            <button nz-button nzType="primary" (click)="login()" [nzLoading]="loading">登录</button>
           </nz-form-control>
         </nz-form-item>
       </form>
     </div>
     <div class="sidebar">
-      <h1>Welcome to Zeppelin!</h1>
-      Zeppelin is web-based notebook that enables interactive data analytics.<br/>
-      You can make beautiful data-driven, interactive, collaborative document with SQL, code and even more!<br/>
+      <h1>欢迎来到XX数据分析平台 </h1>
+      <!-- Zeppelin! -->
+      这是一个能进行交互式数据分析的在线笔记本。<br/>
+      你可以借助它制作出基于数据的、交互的、合作式的漂亮的文档，其中含有SQL、代码或者更多!<br/>
     </div>
   </div>
 </div>

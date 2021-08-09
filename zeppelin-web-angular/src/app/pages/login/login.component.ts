@@ -26,6 +26,7 @@ export class LoginComponent implements OnInit {
   password: string;
   loading = false;
   private returnUrl: string | undefined;
+  ssoid: string | undefined;
 
   login() {
     this.loading = true;
@@ -42,6 +43,11 @@ export class LoginComponent implements OnInit {
     );
   }
 
+  getsso() {
+    console.log('sso-id：' + this.ssoid);
+    this.userName = this.ssoid;
+  }
+
   constructor(
     private ticketService: TicketService,
     private cdr: ChangeDetectorRef,
@@ -50,6 +56,7 @@ export class LoginComponent implements OnInit {
   ) {
     route.queryParams.subscribe(params => {
       this.returnUrl = params.returnUrl;
+      this.ssoid = params.ssoid;
     });
   }
 
