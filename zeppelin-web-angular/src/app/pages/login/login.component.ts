@@ -30,6 +30,7 @@ export class LoginComponent implements OnInit {
 
   login() {
     this.loading = true;
+    // Todo: sso ticketService
     this.ticketService.login(this.userName, this.password).subscribe(
       () => {
         this.loading = false;

@@ -82,7 +82,21 @@ export class TicketService {
       .post(`${this.baseUrlService.getRestApiBase()}/login/logout`, {})
       .pipe(tap(() => nextAction(), () => nextAction()));
   }
-
+  // Todo: sso ticketService
+  ssologin(userId: string) {
+    const payload = new HttpParams().set('userId', userId);
+    return this.httpClient.post<ITicket>(`${this.baseUrlService.getRestApiBase()}/login`, payload).pipe(
+      tap(
+        data => {
+          this.nzMessageService.success('Login Success');
+          this.setTicket(data);
+        },
+        () => {
+          this.nzMessageService.warning("The username and password that you entered don't match.");
+        }
+      )
+    );
+  }
   login(userName: string, password: string) {
     const payload = new HttpParams().set('userName', userName).set('password', password);
     return this.httpClient.post<ITicket>(`${this.baseUrlService.getRestApiBase()}/login`, payload).pipe(
