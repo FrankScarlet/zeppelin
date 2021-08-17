@@ -21,6 +21,8 @@ function LoginCtrl($scope, $rootScope, $http, $httpParamSerializer, baseUrlSrv, 
   $scope.loginParams = {};
   $scope.login = function() {
     $scope.SigningIn = true;
+    console.log('解析URL' + $location.search());
+    console.log('ref is ' + $location.search()['ref']);
     $http({
       method: 'POST',
       url: baseUrlSrv.getRestApiBase() + '/login',
